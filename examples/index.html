@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spotify Wrapper Test</title>
+</head>
+<body>
+
+<div id="albums"></div>
+
+<script src="../dist/spotify-wrapper.umd.js"></script>
+
+<script>
+    const spotify = new SpotifyWrapper({
+        token: 'BQAiDcJbHScM2Y3Pkc0jHE4we3TiRkcp7aJQoEsWSSax-klTBoMBFzQDU-igSuES5H5lJuDF6cKe8600Eia4iVehpV3HmUvp9UUlTIEwg3cOXqhrx-gx7_eKhaybYOrKMIm8ANF6WDLzGA'
+    })
+
+    console.warn(spotify)
+
+    const albums = spotify.search.searchAlbums('Soundgarden');
+    const albumsEl = document.getElementById('albums');
+
+    albums
+        .then(data => {
+            markup = data.albums.items.map(item =>
+                `<img src='${item.images[0].url}' alt='${item.name}' />`
+            ).join('');
+
+            albumsEl.innerHTML = markup;
+        })
+</script>
+</body>
+</html>

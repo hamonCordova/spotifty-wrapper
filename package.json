@@ -1,0 +1,68 @@
+{
+    "name": "spotify-wrapper",
+    "version": "1.0.0",
+    "description": "A Spotify wrapper to work with the Spotify Web API",
+    "main": "src/index.js",
+    "scripts": {
+        "clear": "rimraf lib",
+        "prebuild": "./node_modules/.bin/babel --out-dir lib src",
+        "build": "npm run clear && npm run prebuild",
+        "build:watch": "npm run clear && npm run prebuild -- --watch",
+        "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js --mode=development",
+        "build:umd-min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
+        "build:all": "npm run build && npm run build:umd && npm run build:umd-min",
+        "lint": "./node_modules/.bin/eslint src/*.js",
+        "prepush": "npm run lint",
+        "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register",
+        "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register --watch",
+        "test:coverage": "nyc npm test"
+    },
+    "nyc": {
+        "reporter": [
+            "text",
+            "html"
+        ],
+        "exclude": [
+            "tests/**"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hamonCordova/js-tdd-course.git"
+    },
+    "keywords": [
+        "js",
+        "tdd",
+        "library"
+    ],
+    "author": "Hamon Córdova <hamoncj@gmail.com> (https://hamoncordova.com.br/)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hamonCordova/spotify-wrapper/issues"
+    },
+    "homepage": "https://github.com/hamonCordova/spotify-wrapper#readme",
+    "devDependencies": {
+        "@babel/cli": "^7.8.3",
+        "@babel/preset-env": "^7.8.3",
+        "@babel/register": "^7.8.3",
+        "babel-loader": "^8.0.6",
+        "chai": "^3.5.0",
+        "eslint": "^4.0.0",
+        "eslint-config-airbnb-base": "^11.2.0",
+        "eslint-plugin-import": "^2.6.1",
+        "husky": "^0.11.9",
+        "mocha": "^3.2.0",
+        "node-fetch": "^2.6.1",
+        "nyc": "^10.2.0",
+        "rimraf": "^2.6.1",
+        "sinon": "^9.2.4",
+        "sinon-chai": "^3.5.0",
+        "webpack": "^4.41.5",
+        "webpack-cli": "^3.3.10"
+    },
+    "dependencies": {
+        "@babel/core": "^7.12.13",
+        "babel-loader": "^8.2.2",
+        "webpack": "^5.20.1"
+    }
+}
