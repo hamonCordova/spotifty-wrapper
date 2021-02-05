@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-    - "lts/*"
+    - 'lts/*'
 cache:
     directories:
-        - "node_modeules"
+        - 'node_modules'
 before_script:
     - npm run build:all
 after_success:

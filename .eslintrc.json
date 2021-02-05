@@ -5,6 +5,7 @@
         "indent": ["error", 4],
         "no-undef": "off",
         "no-unused-expressions": "off",
-        "row-parens": "off"
+        "row-parens": "off",
+        "arrow-parens": "off"
     }
 }

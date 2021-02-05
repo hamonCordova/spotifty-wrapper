@@ -1,5 +1,5 @@
 import albums from './albums';
-import search from "./search";
+import search from './search';
 
 export default class SpotifyWrapper {
     constructor(config = { apiUrl: 'https://api.spotify.com/v1', token: null }) {
@@ -16,6 +16,6 @@ export default class SpotifyWrapper {
             },
         };
 
-        return fetch(url, headers).then(res => res.json());
+        return fetch(url, headers).then((res) => res.json());
     }
 }
