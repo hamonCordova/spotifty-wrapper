@@ -63,6 +63,7 @@
     "dependencies": {
         "@babel/core": "^7.12.13",
         "babel-loader": "^8.2.2",
+        "schema-utils": "^3.0.0",
         "webpack": "^5.20.1"
     }
 }
