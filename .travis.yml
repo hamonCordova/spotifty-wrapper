@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+    - "7"
+cache:
+    directories:
+        - "node_modeules"
+before_script:
+    - "npm run build:all"
+after_success:
+    - "npm run test:covarage"
